@@ -225,6 +225,24 @@
 											"height": 13,
 											"text": "#userId: int",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGEOUS0CHITM9o=",
+											"_parent": {
+												"$ref": "AAAAAAGDzOWuGp7oY6Y="
+											},
+											"model": {
+												"$ref": "AAAAAAGEOUSz33IQepw="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": 61,
+											"top": 125,
+											"width": 367,
+											"height": 13,
+											"text": "#email: String",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
@@ -939,13 +957,30 @@
 											"height": 13,
 											"text": "-money: KiwiCoin",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGEOUcPHHuACQc=",
+											"_parent": {
+												"$ref": "AAAAAAGDzSNciqBvEUQ="
+											},
+											"model": {
+												"$ref": "AAAAAAGEOUcPA3t93Ss="
+											},
+											"font": "Arial;13;0",
+											"left": 285,
+											"top": 619,
+											"width": 285.00341796875,
+											"height": 13,
+											"text": "-email: String",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 280,
 									"top": 569,
 									"width": 295.00341796875,
-									"height": 53
+									"height": 68
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -986,7 +1021,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 629,
+											"top": 644,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+Player()",
@@ -1003,7 +1038,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 644,
+											"top": 659,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+Player(kiwi: Kiwi, money: KiwiCoin)",
@@ -1020,7 +1055,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 659,
+											"top": 674,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+getFriendsList()",
@@ -1037,7 +1072,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 674,
+											"top": 689,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+setFriendsList(FriendsList: List<Player>)",
@@ -1054,7 +1089,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 689,
+											"top": 704,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+getMoney()",
@@ -1071,7 +1106,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 704,
+											"top": 719,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+setMoney(money: KiwiCoin)",
@@ -1088,7 +1123,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 719,
+											"top": 734,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+getKiwi()",
@@ -1105,18 +1140,52 @@
 											},
 											"font": "Arial;13;0",
 											"left": 285,
-											"top": 734,
+											"top": 749,
 											"width": 285.00341796875,
 											"height": 13,
 											"text": "+setKiwi(kiwi: Kiwi)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGEOUdzrX6YffA=",
+											"_parent": {
+												"$ref": "AAAAAAGDzSNci6BwoFs="
+											},
+											"model": {
+												"$ref": "AAAAAAGEOUdzmX6VSU4="
+											},
+											"font": "Arial;13;0",
+											"left": 285,
+											"top": 764,
+											"width": 285.00341796875,
+											"height": 13,
+											"text": "+getEmail()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGEOUfjj527SNo=",
+											"_parent": {
+												"$ref": "AAAAAAGDzSNci6BwoFs="
+											},
+											"model": {
+												"$ref": "AAAAAAGEOUfjhJ240xY="
+											},
+											"font": "Arial;13;0",
+											"left": 285,
+											"top": 779,
+											"width": 285.00341796875,
+											"height": 13,
+											"text": "+setEmail()",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 280,
-									"top": 622,
+									"top": 637,
 									"width": 295.00341796875,
-									"height": 130
+									"height": 160
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -9446,6 +9515,16 @@
 							"name": "userId",
 							"visibility": "protected",
 							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGEOUSz33IQepw=",
+							"_parent": {
+								"$ref": "AAAAAAGDzOWuGJ7gIks="
+							},
+							"name": "email",
+							"visibility": "protected",
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -9843,6 +9922,16 @@
 							"name": "money",
 							"visibility": "private",
 							"type": "KiwiCoin"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGEOUcPA3t93Ss=",
+							"_parent": {
+								"$ref": "AAAAAAGDzSNciqBnVWg="
+							},
+							"name": "email",
+							"visibility": "private",
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -9975,6 +10064,22 @@
 									}
 								}
 							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGEOUdzmX6VSU4=",
+							"_parent": {
+								"$ref": "AAAAAAGDzSNciqBnVWg="
+							},
+							"name": "getEmail"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGEOUfjhJ240xY=",
+							"_parent": {
+								"$ref": "AAAAAAGDzSNciqBnVWg="
+							},
+							"name": "setEmail"
 						}
 					]
 				},

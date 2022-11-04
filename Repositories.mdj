@@ -1199,8 +1199,8 @@
 							"left": 24,
 							"top": 320,
 							"width": 122.59716796875,
-							"height": 92,
-							"text": "PlayerRepository:\njátékos játék beli adatait tároljuk (userId, userName, kiwiId, money)"
+							"height": 105,
+							"text": "PlayerRepository:\njátékos játék beli adatait tároljuk (userId, userName, kiwiId, money, email)"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -1465,10 +1465,10 @@
 							},
 							"font": "Arial;13;0",
 							"left": 16,
-							"top": 424,
+							"top": 440,
 							"width": 151.50439453125,
 							"height": 90,
-							"text": "CreditentialRepository: itt tároljuk a felhasználó belépési adatait. (userName, password, userId)"
+							"text": "CreditentialRepository: itt tároljuk a felhasználó belépési adatait. (userName, password, userId, )"
 						}
 					]
 				},
