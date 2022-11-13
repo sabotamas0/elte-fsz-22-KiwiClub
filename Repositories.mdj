@@ -60,7 +60,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 70,
-											"width": 710,
+											"width": 727,
 											"height": 13,
 											"text": "Repositories"
 										},
@@ -93,7 +93,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 63,
-									"width": 720,
+									"width": 737,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGEChVE95NBvJA="
@@ -133,8 +133,8 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 48,
-							"width": 720,
-							"height": 265,
+							"width": 737,
+							"height": 257,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEChVE95NAZK8="
 							}
@@ -243,8 +243,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -64,
-									"top": -80,
+									"left": -56,
+									"top": -112,
 									"width": 10,
 									"height": 10
 								},
@@ -310,8 +310,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -64,
-									"top": -80,
+									"left": -56,
+									"top": -112,
 									"width": 10,
 									"height": 10
 								},
@@ -326,8 +326,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -64,
-									"top": -80,
+									"left": -56,
+									"top": -112,
 									"width": 10,
 									"height": 10
 								}
@@ -463,8 +463,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 8,
-									"top": -120,
+									"left": 16,
+									"top": -152,
 									"width": 10,
 									"height": 10
 								},
@@ -513,8 +513,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 8,
-									"top": -120,
+									"left": 16,
+									"top": -152,
 									"width": 10,
 									"height": 10
 								},
@@ -529,8 +529,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 8,
-									"top": -120,
+									"left": 16,
+									"top": -152,
 									"width": 10,
 									"height": 10
 								}
@@ -666,8 +666,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -128,
-									"top": -136,
+									"left": -120,
+									"top": -168,
 									"width": 10,
 									"height": 10
 								},
@@ -734,8 +734,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -128,
-									"top": -136,
+									"left": -120,
+									"top": -168,
 									"width": 10,
 									"height": 10
 								},
@@ -750,8 +750,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -128,
-									"top": -136,
+									"left": -120,
+									"top": -168,
 									"width": 10,
 									"height": 10
 								}
@@ -887,8 +887,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -8,
-									"top": -128,
+									"top": -160,
 									"width": 10,
 									"height": 10
 								},
@@ -937,8 +936,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -8,
-									"top": -128,
+									"top": -160,
 									"width": 10,
 									"height": 10
 								},
@@ -953,8 +951,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -8,
-									"top": -128,
+									"top": -160,
 									"width": 10,
 									"height": 10
 								}
@@ -1090,8 +1087,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 8,
-									"top": -144,
+									"left": 16,
+									"top": -176,
 									"width": 10,
 									"height": 10
 								},
@@ -1140,8 +1137,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 8,
-									"top": -144,
+									"left": 16,
+									"top": -176,
 									"width": 10,
 									"height": 10
 								},
@@ -1156,8 +1153,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 8,
-									"top": -144,
+									"left": 16,
+									"top": -176,
 									"width": 10,
 									"height": 10
 								}
@@ -1196,8 +1193,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 24,
-							"top": 320,
+							"left": 32,
+							"top": 328,
 							"width": 122.59716796875,
 							"height": 105,
 							"text": "PlayerRepository:\njátékos játék beli adatait tároljuk (userId, userName, kiwiId, money, email)"
@@ -1209,10 +1206,10 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 152,
-							"top": 320,
+							"left": 160,
+							"top": 328,
 							"width": 109.58447265625,
-							"height": 88,
+							"height": 77,
 							"text": "KiwiRepository: kivik minden adatát tároljuk az adatbázisban"
 						},
 						{
@@ -1222,8 +1219,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 272,
-							"top": 320,
+							"left": 280,
+							"top": 328,
 							"width": 142.103515625,
 							"height": 90,
 							"text": "MinigameRepository: ebben az adatbázisban tároljuk a játékos tippjeit, (userId, tipp, date)"
@@ -1235,10 +1232,10 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 432,
-							"top": 320,
+							"left": 440,
+							"top": 328,
 							"width": 156.07470703125,
-							"height": 88,
+							"height": 77,
 							"text": "TricksRepository:ebben az adatbázisban tároljuk az összes trükköt (név, leckeszám)"
 						},
 						{
@@ -1248,10 +1245,10 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 600,
-							"top": 320,
+							"left": 608,
+							"top": 328,
 							"width": 161.1337890625,
-							"height": 129,
+							"height": 116,
 							"text": "LearnedTrickRepository: Itt tároljuk el melyik trüköket tanulták az egyes kiwik, illetve a jelenleg tanult trükkjéből hány leckét tanult meg. (kiwiId, trickName, learnedLectures) "
 						},
 						{
@@ -1296,7 +1293,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 37,
-											"top": 231,
+											"top": 230,
 											"width": 139.41357421875,
 											"height": 13,
 											"text": "CreditentialRepository"
@@ -1331,7 +1328,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 224,
+									"top": 223,
 									"width": 149.41357421875,
 									"height": 25,
 									"stereotypeLabel": {
@@ -1358,8 +1355,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -120,
-									"top": -24,
+									"left": -112,
+									"top": -56,
 									"width": 10,
 									"height": 10
 								},
@@ -1384,7 +1381,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 37,
-											"top": 254,
+											"top": 253,
 											"width": 139.41357421875,
 											"height": 13,
 											"text": "+getPlayerByName()",
@@ -1393,7 +1390,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 32,
-									"top": 249,
+									"top": 248,
 									"width": 149.41357421875,
 									"height": 23
 								},
@@ -1408,8 +1405,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -120,
-									"top": -24,
+									"left": -112,
+									"top": -56,
 									"width": 10,
 									"height": 10
 								},
@@ -1424,8 +1421,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -120,
-									"top": -24,
+									"left": -112,
+									"top": -56,
 									"width": 10,
 									"height": 10
 								}
@@ -1438,7 +1435,7 @@
 							"left": 32,
 							"top": 200,
 							"width": 149.41357421875,
-							"height": 73,
+							"height": 72,
 							"stereotypeDisplay": "icon",
 							"nameCompartment": {
 								"$ref": "AAAAAAGECisXWZSWLdU="
@@ -1464,10 +1461,10 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 16,
-							"top": 440,
+							"left": 24,
+							"top": 448,
 							"width": 151.50439453125,
-							"height": 90,
+							"height": 77,
 							"text": "CreditentialRepository: itt tároljuk a felhasználó belépési adatait. (userName, password, userId, )"
 						}
 					]
