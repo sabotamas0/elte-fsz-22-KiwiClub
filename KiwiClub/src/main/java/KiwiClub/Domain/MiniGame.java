@@ -6,7 +6,7 @@ import java.util.List;
 public class MiniGame {
 	
 	private List<Tipp> tipps;
-	private Date gameDate;
+	
 	
 	public MiniGame() {
 		
