@@ -14,7 +14,11 @@ public class Kiwi {
 	private Mood mood; // vagy külön osztály
 	private LearnedTricks learnedTricks;
 	private Date birthDate;
+	private Date lastFedDate;
+	private Date lastTaughtDate;
 	
+	
+
 	public Kiwi() {
 		
 	}
@@ -24,6 +28,22 @@ public class Kiwi {
 		this.name = name;
 		this.sex = sex;
 		this.species = species;
+	}
+	
+	public Date getLastFedDate() {
+		return lastFedDate;
+	}
+
+	public void setLastFedDate(Date lastFedDate) {
+		this.lastFedDate = lastFedDate;
+	}
+
+	public Date getLastTaughtDate() {
+		return lastTaughtDate;
+	}
+
+	public void setLastTaughtDate(Date lastTaughtDate) {
+		this.lastTaughtDate = lastTaughtDate;
 	}
 
 	public int getKiwiId() {
