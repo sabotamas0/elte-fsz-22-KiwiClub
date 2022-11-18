@@ -1737,7 +1737,7 @@
 											"top": 197,
 											"width": 335,
 											"height": 13,
-											"text": "-lastFeed: Date",
+											"text": "-lastFeedDate: Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1754,7 +1754,7 @@
 											"top": 212,
 											"width": 335,
 											"height": 13,
-											"text": "-lastFeed: Date",
+											"text": "-lastToughtDate: Date",
 											"horizontalAlignment": 0
 										}
 									],
@@ -10377,7 +10377,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGDzSWbRqDWtKg="
 							},
-							"name": "lastFeed",
+							"name": "lastFeedDate",
 							"visibility": "private",
 							"type": "Date"
 						},
@@ -10387,7 +10387,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGDzSWbRqDWtKg="
 							},
-							"name": "lastFeed",
+							"name": "lastToughtDate",
 							"visibility": "private",
 							"type": "Date"
 						}
