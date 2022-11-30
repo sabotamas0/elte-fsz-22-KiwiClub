@@ -1,11 +1,11 @@
-package KiwiClub.Domain;
-
+package KiwiClub.KiwiClub.Domain;
+import java.util.UUID;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 public class Kiwi {
-	private int kiwiId;
+	private UUID kiwiId;
 	private String name;
 	private boolean isAlive;
 	private Sex sex;
@@ -23,7 +23,7 @@ public class Kiwi {
 		
 	}
 	
-	public Kiwi(int kiwiId, String name, Sex sex, KiwiSpecies species) {
+	public Kiwi(UUID kiwiId, String name, Sex sex, KiwiSpecies species) {
 		this.kiwiId = kiwiId;
 		this.name = name;
 		this.sex = sex;
@@ -46,10 +46,10 @@ public class Kiwi {
 		this.lastTaughtDate = lastTaughtDate;
 	}
 
-	public int getKiwiId() {
+	public UUID getKiwiId() {
 		return kiwiId;
 	}
-	public void setKiwiId(int kiwiId) {
+	public void setKiwiId(UUID kiwiId) {
 		this.kiwiId = kiwiId;
 	}
 	public String getName() {

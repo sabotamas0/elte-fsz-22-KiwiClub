@@ -1,4 +1,4 @@
-package KiwiClub;
+package KiwiClub.KiwiClub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KiwiClubApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(KiwiClubApplication.class, args);
 	}
 

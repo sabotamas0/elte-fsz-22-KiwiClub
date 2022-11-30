@@ -1,17 +1,18 @@
-package KiwiClub.Domain;
+package KiwiClub.KiwiClub.Domain;
 
 import java.util.List;
+import java.util.UUID;
 
 public class LearnedTricks {
 	
-	private int kiwiId;
+	private UUID kiwiId;
 	private List<Trick> tricks;
 	private int learnedLectures;
 	
-	public int getKiwiId() {
+	public UUID getKiwiId() {
 		return kiwiId;
 	}
-	public void setKiwiId(int kiwiId) {
+	public void setKiwiId(UUID kiwiId) {
 		this.kiwiId = kiwiId;
 	}
 	public List<Trick> getTricks() {

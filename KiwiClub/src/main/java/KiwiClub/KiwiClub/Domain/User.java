@@ -1,15 +1,17 @@
-package KiwiClub.Domain;
+package KiwiClub.KiwiClub.Domain;
+
+import java.util.UUID;
 
 public class User {
 	protected String name;
 	protected String password;
-	protected int userId;
+	protected UUID userId;
 	
 	public User() {
 		
 	}
 
-	public User(String name, String password, int userId) {
+	public User(String name, String password, UUID userId) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -28,10 +30,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getUserId() {
+	public UUID getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(UUID userId) {
 		this.userId = userId;
 	}
 	

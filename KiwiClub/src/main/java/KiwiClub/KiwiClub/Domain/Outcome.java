@@ -1,4 +1,4 @@
-package KiwiClub.Domain;
+package KiwiClub.KiwiClub.Domain;
 
 import java.util.List;
 
