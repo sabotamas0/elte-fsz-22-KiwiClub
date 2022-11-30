@@ -1,10 +1,11 @@
 package KiwiClub.KiwiClub.Domain;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Tipp {
 	
-	private int userId;
+	private UUID userId;
 	private int tippedNumber;
 	private Date gameDate;
 	
@@ -20,17 +21,17 @@ public class Tipp {
 		
 	}
 	
-	public Tipp(int userId, int tippedNumber, Date gameDate) {
+	public Tipp(UUID userId, int tippedNumber, Date gameDate) {
 		super();
 		this.userId = userId;
 		this.tippedNumber = tippedNumber;
 		this.gameDate = gameDate;
 	}
 
-	public int getUserId() {
+	public UUID getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(UUID userId) {
 		this.userId = userId;
 	}
 	public int getTippedNumber() {
