@@ -1,12 +1,12 @@
 package KiwiClub.KiwiClub.Repository;
 
-import KiwiClub.KiwiClub.Domain.Trick;
+import KiwiClub.KiwiClub.Domain.MiniGame;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-interface TrickRepository extends CrudRepository<Trick, UUID> {
+public interface MiniGameRepository extends CrudRepository<MiniGame, UUID> {
 
 }

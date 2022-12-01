@@ -1,11 +1,11 @@
 package KiwiClub.KiwiClub.Repository;
-import KiwiClub.KiwiClub.Domain.Player;
+import KiwiClub.KiwiClub.Domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-interface CredentialsRepository extends CrudRepository<Player, UUID> {
+public interface CredentialsRepository extends CrudRepository<User, UUID> {
 
 }
