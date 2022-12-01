@@ -1,13 +1,19 @@
 package KiwiClub.KiwiClub.Domain;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
+
+@Entity
 public class Player extends User { // friendsList nélkül
 
+	@OneToOne
 	private Kiwi kiwi;
+	@OneToOne
 	private KiwiCoin money;
 	private String email;
 	
-	public Player(String name, String password, int userId, Kiwi kiwi, KiwiCoin money) {
-		super(name, password, userId);
+	public Player(String name, String password, Kiwi kiwi, KiwiCoin money) {
+		super(name, password);
 		this.kiwi=kiwi;
 		this.money=money;
 	}

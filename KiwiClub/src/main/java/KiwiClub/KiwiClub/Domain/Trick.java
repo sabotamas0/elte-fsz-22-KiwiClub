@@ -1,10 +1,19 @@
 package KiwiClub.KiwiClub.Domain;
 
-public class Trick {
+import javax.persistence.*;
+import java.util.UUID;
 
+@Entity
+public class Trick {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID TrickId;
 	private String name;
 	private int lectures;
-	
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private LearnedTricks learnedTricks;
+
 	public String getName() {
 		return name;
 	}
@@ -17,6 +26,8 @@ public class Trick {
 	public void setLectures(int lectures) {
 		this.lectures = lectures;
 	}
+
+
 	
 	
 	

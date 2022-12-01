@@ -1,13 +1,19 @@
 package KiwiClub.KiwiClub.Domain;
-
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
+@Entity
 public class Tipp {
-	
+	@Id
 	private UUID userId;
 	private int tippedNumber;
 	private Date gameDate;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private MiniGame miniGame;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Outcome outcome;
 	
 	public Date getGameDate() {
 		return gameDate;

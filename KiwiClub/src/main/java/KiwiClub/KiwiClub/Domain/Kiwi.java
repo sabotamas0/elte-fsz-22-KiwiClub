@@ -1,30 +1,32 @@
 package KiwiClub.KiwiClub.Domain;
+import javax.persistence.*;
 import java.util.UUID;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
+@Entity
 public class Kiwi {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID kiwiId;
 	private String name;
 	private boolean isAlive;
 	private Sex sex;
 	private KiwiSpecies species;
+	@OneToOne
 	private Weight weight;
+	@OneToOne
 	private Mood mood; // vagy külön osztály
+	@OneToOne
 	private LearnedTricks learnedTricks;
 	private Date birthDate;
 	private Date lastFedDate;
 	private Date lastTaughtDate;
-	
-	
 
 	public Kiwi() {
 		
 	}
 	
-	public Kiwi(UUID kiwiId, String name, Sex sex, KiwiSpecies species) {
-		this.kiwiId = kiwiId;
+	public Kiwi(String name, Sex sex, KiwiSpecies species) {
 		this.name = name;
 		this.sex = sex;
 		this.species = species;
@@ -46,12 +48,6 @@ public class Kiwi {
 		this.lastTaughtDate = lastTaughtDate;
 	}
 
-	public UUID getKiwiId() {
-		return kiwiId;
-	}
-	public void setKiwiId(UUID kiwiId) {
-		this.kiwiId = kiwiId;
-	}
 	public String getName() {
 		return name;
 	}
