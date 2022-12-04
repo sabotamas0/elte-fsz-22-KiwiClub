@@ -1,10 +1,10 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.4'
-	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
+	id 'org.springframework.boot' version '2.7.6'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
-group = 'com.example'
+group = 'KiwiClub'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -13,10 +13,17 @@ repositories {
 }
 
 dependencies {
+	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.session:spring-session-core'
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	implementation 'com.github.mvallim:java-fluent-validator:1.10.0'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+

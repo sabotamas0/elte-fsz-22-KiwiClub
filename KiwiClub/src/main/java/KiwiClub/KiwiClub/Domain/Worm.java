@@ -1,4 +1,4 @@
-package KiwiClub.Domain;
+package KiwiClub.KiwiClub.Domain;
 
 public class Worm extends Food {
 	private Worm instance;

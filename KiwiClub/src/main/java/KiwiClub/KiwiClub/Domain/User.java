@@ -1,19 +1,27 @@
-package KiwiClub.Domain;
+package KiwiClub.KiwiClub.Domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import java.util.UUID;
+
+@MappedSuperclass
 public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	protected UUID userId;
 	protected String name;
 	protected String password;
-	protected int userId;
 	
 	public User() {
 		
 	}
-
-	public User(String name, String password, int userId) {
+	public User(String name, String password) {
 		super();
 		this.name = name;
 		this.password = password;
-		this.userId = userId;
+
 	}
 	
 	public String getName() {
@@ -28,10 +36,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getUserId() {
+	public UUID getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(UUID userId) {
 		this.userId = userId;
 	}
 	

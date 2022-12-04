@@ -1,6 +1,14 @@
-package KiwiClub.Domain;
+package KiwiClub.KiwiClub.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.UUID;
+
+@Entity
 public class Mood {
+	@Id
+	private UUID kiwiId;
+
 	private int happines;
 
 	public Mood() {
