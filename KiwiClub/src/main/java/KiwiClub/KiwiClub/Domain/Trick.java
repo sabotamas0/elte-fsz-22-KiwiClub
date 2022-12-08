@@ -11,6 +11,9 @@ public class Trick {
 	private String name;
 	private int lectures;
 
+	public UUID getTrickId() {
+		return TrickId;
+	}
 	@ManyToOne(fetch = FetchType.LAZY)
 	private LearnedTricks learnedTricks;
 

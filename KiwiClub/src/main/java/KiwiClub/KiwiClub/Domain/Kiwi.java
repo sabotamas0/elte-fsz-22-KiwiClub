@@ -8,6 +8,7 @@ public class Kiwi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID kiwiId;
+	private UUID playerId;
 	private String name;
 	private boolean isAlive;
 	private Sex sex;
@@ -26,12 +27,21 @@ public class Kiwi {
 		
 	}
 	
-	public Kiwi(String name, Sex sex, KiwiSpecies species) {
+	public Kiwi(String name, Sex sex, KiwiSpecies species, UUID playerId) {
 		this.name = name;
 		this.sex = sex;
 		this.species = species;
+		this.playerId=playerId;
 	}
 	
+	public UUID getPlayerId() {
+		return playerId;
+	}
+
+	public void setPlayerId(UUID playerId) {
+		this.playerId = playerId;
+	}
+
 	public Date getLastFedDate() {
 		return lastFedDate;
 	}

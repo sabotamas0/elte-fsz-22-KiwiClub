@@ -8,5 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface KiwiRepository extends CrudRepository<Kiwi, UUID> {
-
+	Kiwi getKiwiByPlayerId(UUID playerId);
 }

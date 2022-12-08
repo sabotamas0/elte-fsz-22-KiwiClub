@@ -12,10 +12,11 @@ public class Player extends User { // friendsList nélkül
 	private KiwiCoin money;
 	private String email;
 	
-	public Player(String name, String password, Kiwi kiwi, KiwiCoin money) {
+	public Player(String name, String password, Kiwi kiwi, KiwiCoin money, String email) {
 		super(name, password);
 		this.kiwi=kiwi;
 		this.money=money;
+		this.email=email;
 	}
 	
 	public Kiwi getKiwi() {
