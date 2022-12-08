@@ -14,12 +14,8 @@ public class UserService {
 	@Autowired
 	private CredentialsRepository credentialsRepository;
 	
-	public void login(User user) {
-		user=credentialsRepository.save(user);
-	}
-	
 	public void register(User user) {
-		
+		user=credentialsRepository.save(user);
 	}
 
 }
