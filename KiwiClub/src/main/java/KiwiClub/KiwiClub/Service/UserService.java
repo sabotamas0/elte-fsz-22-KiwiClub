@@ -4,21 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import KiwiClub.KiwiClub.Domain.Player;
-import KiwiClub.KiwiClub.Repository.PlayerRepository;
+import KiwiClub.KiwiClub.Domain.User;
+import KiwiClub.KiwiClub.Repository.CredentialsRepository;
 
 @Service
 @Scope("prototype")
 public class UserService {
 	
 	@Autowired
-	protected PlayerRepository playerRepository;
+	private CredentialsRepository credentialsRepository;
 	
-	public void login(Player player) {
-		player=playerRepository.save(player);
+	public void login(User user) {
+		user=credentialsRepository.save(user);
 	}
 	
-	public void register(Player player) {
+	public void register(User user) {
 		
 	}
 
