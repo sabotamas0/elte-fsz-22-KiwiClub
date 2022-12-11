@@ -8,5 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface PlayerRepository extends CrudRepository<Player, UUID> {
-
+	Player getPlayerByName(String name);
+	Player getPlayerByEmail(String email);
 }
