@@ -2,33 +2,26 @@ package KiwiClub.KiwiClub.Domain;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "users")
 public class User {
 	@Id
 	@GeneratedValue
 	public Long userId;
+	@Column(nullable = false)
 	protected String name;
+	@Column(nullable = false)
 	protected String password;
+	@Column(nullable = false, unique = true)
+	protected String email;
 	private boolean isAdmin;
-
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public boolean isUserAdmin() {
-		return isAdmin;
-	}
-	public void setUserAdmin(boolean pIsAdmin) {
-		isAdmin = pIsAdmin;
-	}
 }

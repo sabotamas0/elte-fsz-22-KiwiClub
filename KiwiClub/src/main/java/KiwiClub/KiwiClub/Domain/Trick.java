@@ -1,13 +1,16 @@
 package KiwiClub.KiwiClub.Domain;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 public class Trick {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID TrickId;
+	@GeneratedValue
+	public Long TrickId;
 	private String name;
 	private int lectures;
 

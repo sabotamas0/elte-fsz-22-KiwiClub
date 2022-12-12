@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TrickController {
 
+    /*
     @Autowired
     private TrickService trickService;
 
@@ -28,4 +29,6 @@ public class TrickController {
     public void addTrick(@RequestBody Trick trick) {
         trickService.addTrick(trick);
     }
+
+     */
 }

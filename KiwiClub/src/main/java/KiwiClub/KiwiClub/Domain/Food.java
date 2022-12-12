@@ -1,6 +1,7 @@
 package KiwiClub.KiwiClub.Domain;
 
 public class Food {
+
 	protected int price;
 	protected int nutrition;
 	

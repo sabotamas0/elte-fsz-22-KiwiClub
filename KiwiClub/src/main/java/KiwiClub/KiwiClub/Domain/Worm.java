@@ -9,6 +9,4 @@ public class Worm extends Food {
 		if (instance==null) instance=new Worm();
 		return instance;
 	}
-	
-	
 }

@@ -1,5 +1,7 @@
 package KiwiClub.KiwiClub.Domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -8,7 +10,12 @@ import java.util.UUID;
 public class Outcome {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(
+			name = "UUID",
+			strategy = "org.hibernate.id.UUIDGenerator"
+	)
+	@Column(name = "OutcomeId", updatable = false, nullable = false)
 	public UUID OutcomeId;
 
 	@OneToMany(
