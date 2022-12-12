@@ -1,21 +1,13 @@
 package KiwiClub.KiwiClub.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
-
+import KiwiClub.KiwiClub.Domain.Trick;
 import KiwiClub.KiwiClub.Domain.User;
-import KiwiClub.KiwiClub.Repository.CredentialsRepository;
+import KiwiClub.KiwiClub.dto.UserDto;
 
-@Service
-@Scope("prototype")
-public class UserService {
-	
-	@Autowired
-	private CredentialsRepository credentialsRepository;
-	
-	public void register(User user) {
-		user=credentialsRepository.save(user);
-	}
+import java.util.List;
 
+public interface UserService {
+    void saveUser(UserDto userDto);
+
+    User findUserByEmail(String email);
 }

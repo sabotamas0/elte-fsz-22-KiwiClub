@@ -1,48 +1,27 @@
 package KiwiClub.KiwiClub.Domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import java.util.UUID;
+import javax.persistence.*;
 
-@MappedSuperclass
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "users")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected UUID userId;
+	@GeneratedValue
+	public Long userId;
+	@Column(nullable = false)
 	protected String name;
+	@Column(nullable = false)
 	protected String password;
-	
-	public User() {
-		
-	}
-	public User(String name, String password) {
-		super();
-		this.name = name;
-		this.password = password;
-
-	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public UUID getUserId() {
-		return userId;
-	}
-	public void setUserId(UUID userId) {
-		this.userId = userId;
-	}
-	
-	
-	
+	@Column(nullable = false, unique = true)
+	protected String email;
+	private boolean isAdmin;
 }

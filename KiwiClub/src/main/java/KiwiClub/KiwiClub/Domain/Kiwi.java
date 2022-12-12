@@ -1,4 +1,6 @@
 package KiwiClub.KiwiClub.Domain;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.UUID;
 import java.util.Date;
@@ -6,7 +8,12 @@ import java.util.Date;
 @Entity
 public class Kiwi {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(
+			name = "UUID",
+			strategy = "org.hibernate.id.UUIDGenerator"
+	)
+	@Column(name = "kiwiId", updatable = false, nullable = false)
 	private UUID kiwiId;
 	private UUID playerId;
 	private String name;
