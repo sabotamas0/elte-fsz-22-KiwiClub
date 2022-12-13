@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Kiwi</title>
+
+</head>
+<body>
+<h1> Üdvözlet</h1>
+<h1 th:text="${username}"> !</h1>
+
+<label>Add meg a kiwi nevét! :</label>
+<input type="text" id="kname" name="kname"><br><br>
+
+<select name="sex" id="sex">
+<option value="" selected="selected">Válassz milyen legyen a kiwid neme : </option>
+</select>
+<br><br>
+<select name="species" id="species">
+<option value="" selected="selected">Válassz hogy milyen fajta kiwit szeretnél :</option>
+</select>
+<br><br>
+<button type="button" onclick="javascript:submitFunc()">Click Me!</button>
+
+
+<script>
+    function submitFunc()
+    {
+        console.log("called");
+
+        var fname = document.getElementById("kname").value;
+        var sex = document.getElementById("sex");
+        var sext = sex.options[sex.selectedIndex].text;
+        var species = document.getElementById("species");
+        var speciest =species.options[species.selectedIndex].text;
+        location.replace("/seeKiwi/" + fname +"/" + sext +"/" +speciest);
+        return true;
+    }
+    var nem = ["Fiu", "Lany", "Egyeb"];
+    var faj = ["Pottyos", "Csikos", "Sima","Foltos"];
+
+    window.onload = function() {
+        var sex = document.getElementById("sex");
+        var species = document.getElementById("species");
+        sex.length = 1;
+        species.length = 1;
+        for (let i = 0; i < nem.length; i++)
+        {
+            var x = nem[i];
+            console.log(x);
+            sex.options[sex.options.length] = new Option(x, x);
+        }
+        for (let i = 0; i < faj.length; i++)
+        {
+            var x = faj[i];
+            species.options[species.options.length] = new Option(x, x);
+        }
+
+    }
+</script>
+</body>
+</html>

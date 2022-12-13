@@ -24,6 +24,11 @@ public class UserServiceImplementation implements UserService {
         return userRepository.findByEmail(email);
     }
 
+    @Override
+    public User findUserByName(String name) {
+        return userRepository.findByName(name);
+    }
+
     private UserDto mapToUserDto(User user){
         UserDto userDto = new UserDto();
         String[] str = user.getName().split(" ");

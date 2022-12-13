@@ -1,8 +1,5 @@
 package KiwiClub.KiwiClub.Domain;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,11 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Trick {
-	@Id
-	@GeneratedValue
-	public Long trickId;
-	private Long kiwiId;
-	private String name;
-	private int lectureCount;
+public class Lecture {
+    @Id
+    public Long lectureId;
+    private Long trickId;
+    private String lectureName;
+    private int lectureIndex;
 }

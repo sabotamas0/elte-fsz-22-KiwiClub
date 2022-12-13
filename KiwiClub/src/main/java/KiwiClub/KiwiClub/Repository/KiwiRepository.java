@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface KiwiRepository extends CrudRepository<Kiwi, UUID> {
-	Kiwi getKiwiByPlayerId(UUID playerId);
+public interface KiwiRepository extends CrudRepository<Kiwi, Long> {
+	Kiwi getKiwiByUserId(Long UserId);
 }

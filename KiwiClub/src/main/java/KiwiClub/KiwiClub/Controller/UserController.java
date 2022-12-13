@@ -24,6 +24,15 @@ public class UserController {
         //TODO
         return "login";
     }
+    @GetMapping("/login/{username}")
+    public String red(@PathVariable(value="username") String id,
+                      String username){
+
+        //TODO: validalni a usert
+
+        //return "redirect:/createKiwi/create?param=" + username;
+        return "redirect:/createKiwi/"+ username;
+    }
     @GetMapping("/register")
     public String showRegistrationForm(Model model){
         UserDto user = new UserDto();
