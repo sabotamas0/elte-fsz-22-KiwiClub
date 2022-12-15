@@ -23,48 +23,40 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <div th:if="${param.error}">
-                <div class="alert alert-danger">Invalid Email and Password.</div>
-            </div>
-            <div th:if="${param.logout}">
-                <div class="alert alert-success">You have been logged out.</div>
-            </div>
             <div class="card">
                 <div class="card-header">
                     <h3 class="text-center">Login Form</h3>
                 </div>
                 <div class="card-body">
-                    <form
-                            method="get"
-                            th:action="@{/login}"
-                            class="form-horizontal"
-                            role="form"
-                    >
+                    <form method="post" role="form" th:action="@{/indexKiwi}" th:object="${user}">
                         <div class="mb-3">
-                            <label for="username" class="control-label">Email *</label>
+                            <label for="email" class="control-label">Email *</label>
                             <input type="text"
-                                   id="username"
-                                   name="username"
+                                   id="email"
+                                   name="email"
+                                   th:field="*{email}"
                                    class="form-control"
                                    placeholder="Email"
                             />
                         </div>
-
+                        <p th:errors="*{email}" class="text-danger"
+                           th:if="${#fields.hasErrors('email')}">
+                        </p>
                         <div class="mb-3">
                             <label for="password" class="control-label">Password *</label>
-                            <input type="password"
-                                   id="password"
-                                   name="password"
+                            <input type="passWord"
+                                   id="passWord"
+                                   name="passWord"
+                                   th:field="*{passWord}"
                                    class="form-control"
                                    placeholder="Password"
                             />
                         </div>
-
+                        <p th:errors="*{passWord}" class="text-danger"
+                           th:if="${#fields.hasErrors('passWord')}">
+                        </p>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                            <span> Not registered?
-                            <a th:href="@{/register}"> Register/SignUp Here</a>
-                        </span>
+                            <button type="submit" id="loginButton" class="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>
@@ -73,4 +65,5 @@
     </div>
 </div>
 </body>
+
 </html>

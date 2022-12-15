@@ -14,13 +14,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "tricks")
 public class Trick {
 	@Id
 	@GeneratedValue
-	public Long TrickId;
+	public Long trickId;
 	private String name;
-	private int lectures;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	private LearnedTricks learnedTricks;
+	private int lectureCount;
 }
