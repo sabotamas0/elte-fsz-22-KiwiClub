@@ -4,61 +4,67 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>Create Kiwi</title>
-
+    <title>Registration and Login System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<h1> Üdvözlet</h1>
-<h1 th:text="${username}"> !</h1>
 
-<label>Add meg a kiwi nevét! :</label>
-<input type="text" id="kname" name="kname"><br><br>
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="row col-md-8 offset-md-2">
+        <div class="card">
+            <div th:if="${param.success}">
+                <div class="alert alert-info">You've successfully registered
+                    to our app!</div>
+            </div>
+            <div class="card-header">
+                <h2 class="text-center">Kiwi Creálás</h2>
 
-<select name="sex" id="sex">
-<option value="" selected="selected">Válassz milyen legyen a kiwid neme : </option>
-</select>
-<br><br>
-<select name="species" id="species">
-<option value="" selected="selected">Válassz hogy milyen fajta kiwit szeretnél :</option>
-</select>
-<br><br>
-<button type="button" onclick="javascript:submitFunc()">Click Me!</button>
-
-
-<script>
-    function submitFunc()
-    {
-        console.log("called");
-
-        var fname = document.getElementById("kname").value;
-        var sex = document.getElementById("sex");
-        var sext = sex.options[sex.selectedIndex].text;
-        var species = document.getElementById("species");
-        var speciest =species.options[species.selectedIndex].text;
-        location.replace("/seeKiwi/" + fname +"/" + sext +"/" +speciest);
-        return true;
-    }
-    var nem = ["Fiu", "Lany", "Egyeb"];
-    var faj = ["Pottyos", "Csikos", "Sima","Foltos"];
-
-    window.onload = function() {
-        var sex = document.getElementById("sex");
-        var species = document.getElementById("species");
-        sex.length = 1;
-        species.length = 1;
-        for (let i = 0; i < nem.length; i++)
-        {
-            var x = nem[i];
-            console.log(x);
-            sex.options[sex.options.length] = new Option(x, x);
-        }
-        for (let i = 0; i < faj.length; i++)
-        {
-            var x = faj[i];
-            species.options[species.options.length] = new Option(x, x);
-        }
-
-    }
-</script>
+            </div>
+            <div class="card-body">
+                <form method="post" role="form" th:action="@{/create/save}" th:object="${kiwi}">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Kiwi név</label>
+                        <input class="form-control"
+                               id="firstName"
+                               name="firstName"
+                               placeholder="Add meg a kiwid nevét"
+                               th:field="*{nev}"
+                               type="text"
+                        />
+                        <p th:errors="*{nev}" class="text-danger"
+                           th:if="${#fields.hasErrors('nev')}">
+                        </p>
+                    </div>
+                    <input type ="hidden" th:field="*{userId}" />
+                    <div class="form-group mb-3">
+                        <label class="form-label">Kiwi faja</label>
+                        <select class="form-control" th:field="*{faj}" >
+                            <option th:each="option : ${optionsFaj}" th:value="${option}" th:text="${option}"></option>
+                        </select>
+                        <p th:errors="*{faj}" class="text-danger"
+                           th:if="${#fields.hasErrors('faj')}">
+                        </p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label">Kiwi neme</label>
+                        <select class="form-control" id="dropDownList" th:field="*{nem}">
+                            <option th:each="option : ${optionsNem}" th:value="${option}" th:text="${option}"></option>
+                        </select>
+                        <p th:errors="*{faj}" class="text-danger"
+                           th:if="${#fields.hasErrors('faj')}">
+                        </p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <button class="btn btn-primary" type="submit">Létrehozz</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

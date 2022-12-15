@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 
 @Getter
 @Setter
@@ -23,8 +24,12 @@ public class Kiwi {
 	private boolean isAlive;
 	private Sex sex;
 	private KiwiSpecies species;
+	@Value("${kiwis.weight:0.0f}")
 	private Float weight;
+	@Value("${kiwis.thirst:1.0f}")
+	private Float thirst;
 	private Date birthDay;
 	private Date lastFeedDay;
+	private Date lastPenaltyDay;
 	
 }

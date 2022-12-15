@@ -11,12 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "foods")
-public class Food {
-	@Id
-	@GeneratedValue
-	public Long foodId;
-	private int price;
-	private int nutrition;
-	private String name;
+@Table(name = "drinks")
+public class Drink {
+    @Id
+    @GeneratedValue
+    public Long drinkId;
+    private int price;
+    //In Liters
+    private Float capacity;
+    private String name;
 }

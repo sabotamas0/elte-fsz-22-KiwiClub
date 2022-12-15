@@ -10,12 +10,9 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class KiwiDto {
-    public Long userId;
+public class UserLoginDto {
     @NotEmpty
-    private String nem;
+    private String email;
     @NotEmpty
-    private String faj;
-    @NotEmpty
-    private String nev;
+    private String passWord;
 }

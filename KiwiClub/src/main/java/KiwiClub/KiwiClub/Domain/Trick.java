@@ -14,11 +14,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "tricks")
 public class Trick {
 	@Id
 	@GeneratedValue
 	public Long trickId;
-	private Long kiwiId;
 	private String name;
 	private int lectureCount;
 }
