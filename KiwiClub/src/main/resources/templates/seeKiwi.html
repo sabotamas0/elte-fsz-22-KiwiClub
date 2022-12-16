@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>SEE Kiwi</title>
+
+</head>
+<body>
+<h1 th:text="${userKiwi.getName()}"></h1>
+<h1 th:text="${userKiwi.getSpecies().toString()}"></h1>
+<h1 th:text="${userKiwi.getSex().toString()}"></h1>
+<h1 th:text="${happiness}"></h1>
+
+<label for="file">Boldogság:</label>
+<progress id="file" th:value="${happiness}" max="100"> happiness% </progress>
+
+<label for="file">Jóllakottság:</label>
+<progress id="file" th:value="${hunger}" max="100"> hunger% </progress>
+
+<label for="file">Hidratáltság:</label>
+<progress id="file" th:value="${thirst}" max="100"> thirst% </progress>
+
+<div class="form-group mb-3">
+    <label class="form-label">Trükkök :</label>
+    <select class="form-control">
+        <option th:each="trick : ${tricks}" th:value="${trick.getName()}" th:text="${trick.getName()}"></option>
+    </select>
+</div>
+
+<form method="post" role="form" th:action="@{/toDrink}">
+    <label class="form-label">Italok :</label>
+    <input type="hidden" name="kiwiId" th:value="${userKiwi.getKiwiId()}">
+    <select class="form-control"  th:field="${drink.drinkName}">
+        <option th:each="drinkss : ${drinks}" th:value="${drinkss.getName()}" th:text="${drinkss.getName()}"></option>
+    </select>
+    <input type="submit">
+</form>
+
+<form method="post" role="form" th:action="@{/toEat}">
+    <label class="form-label">Ételek :</label>
+    <input type="hidden" name="kiwiId" th:value="${userKiwi.getKiwiId()}">
+    <select class="form-control"  th:field="${food.foodName}">
+        <option th:each="food : ${foods}" th:value="${food.getName()}" th:text="${food.getName()}"></option>
+    </select>
+    <input type="submit">
+</form>
+<!--
+<form method="post" role="form" th:action="@{/toDrink}">
+    <label class="form-label">Italok :</label>
+    <div th:object="${userKiwi}" >
+        <input type ="hidden" th:value="KUTYAGECCCIIII" />
+        <select class="form-control"  th:field="${drink.drinkName}">
+            <option th:each="drinkss : ${drinks}" th:value="${drinkss.getName()}" th:text="${drinkss.getName()}"></option>
+        </select>
+    </div>
+
+    <input type="submit">
+</form>
+-->
+</body>
+<script>
+
+</script>
+
+</html>

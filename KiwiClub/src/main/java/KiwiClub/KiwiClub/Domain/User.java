@@ -24,4 +24,5 @@ public class User {
 	@Column(nullable = false, unique = true)
 	protected String email;
 	private boolean isAdmin;
+
 }
