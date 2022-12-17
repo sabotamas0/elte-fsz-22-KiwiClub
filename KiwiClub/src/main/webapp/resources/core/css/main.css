@@ -51,10 +51,6 @@ h1 {
 .active {
     background-color: #8fd450;
 }
-
-.card {
-    margin:10px;
-}
 /*
 .auth-nav {
     position: absolute;
@@ -72,4 +68,14 @@ h1 {
 .navbar-toggler {
     background-color: green;
 }
+
+.card {
+    margin: 10px;
+}
+
+select.form-control {
+    margin-bottom: 5px;
+}
+
+
 

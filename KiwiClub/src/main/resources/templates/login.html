@@ -7,63 +7,78 @@
     <title>Registration and Login System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../resources/core/css/main.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+<nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">Registration and Login System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">
+            <img id="page_logo" src="../../resources/core/kepek/kiwiclub_logo.png" alt="logo">
+            KiwiClub
+        </a>
+        <button class="navbar-toggler navbar-dark  bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuItems" aria-controls="menuItems" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse auth-nav" id="menuItems">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" th:href="@{/register}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" th:href="@{/login}">Login</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
-<br />
-<br />
-<br />
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-center">Login Form</h3>
-                </div>
-                <div class="card-body">
-                    <form method="post" role="form" th:action="@{/indexKiwi}" th:object="${user}">
-                        <div class="mb-3">
-                            <label for="email" class="control-label">Email *</label>
-                            <input type="text"
-                                   id="email"
-                                   name="email"
-                                   th:field="*{email}"
-                                   class="form-control"
-                                   placeholder="Email"
-                            />
-                        </div>
-                        <p th:errors="*{email}" class="text-danger"
-                           th:if="${#fields.hasErrors('email')}">
-                        </p>
-                        <div class="mb-3">
-                            <label for="password" class="control-label">Password *</label>
-                            <input type="passWord"
-                                   id="passWord"
-                                   name="passWord"
-                                   th:field="*{passWord}"
-                                   class="form-control"
-                                   placeholder="Password"
-                            />
-                        </div>
-                        <p th:errors="*{passWord}" class="text-danger"
-                           th:if="${#fields.hasErrors('passWord')}">
-                        </p>
-                        <div class="mb-3">
-                            <button type="submit" id="loginButton" class="btn btn-primary">Login</button>
-                        </div>
-                    </form>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Login Form</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" role="form" th:action="@{/indexKiwi}" th:object="${user}">
+                            <div class="mb-3">
+                                <label for="email" class="control-label">Email *</label>
+                                <input type="text"
+                                       id="email"
+                                       name="email"
+                                       th:field="*{email}"
+                                       class="form-control"
+                                       placeholder="Email"
+                                />
+                            </div>
+                            <p th:errors="*{email}" class="text-danger"
+                               th:if="${#fields.hasErrors('email')}">
+                            </p>
+                            <div class="mb-3">
+                                <label for="password" class="control-label">Password *</label>
+                                <input type="passWord"
+                                       id="passWord"
+                                       name="passWord"
+                                       th:field="*{passWord}"
+                                       class="form-control"
+                                       placeholder="Password"
+                                />
+                            </div>
+                            <p th:errors="*{passWord}" class="text-danger"
+                               th:if="${#fields.hasErrors('passWord')}">
+                            </p>
+                            <div class="mb-3">
+                                <button type="submit" id="loginButton" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
