@@ -4,15 +4,31 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>Registration and Login System</title>
+    <title>KiwiClub Webapp</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../../resources/core/css/main.css" rel="stylesheet">
 </head>
 <body>
-
-<br />
-<br />
-<br />
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img id="page_logo" src="../../resources/core/kepek/kiwiclub_logo.png" alt="logo">
+            KiwiClub
+        </a>
+        <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuItems" aria-controls="menuItems" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse auth-nav" id="menuItems">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <!--<a class="nav-link" aria-current="page" th:href="">Logout</a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main>
 <div class="container">
     <div class="row col-md-8 offset-md-2">
         <div class="card">
@@ -21,17 +37,17 @@
                     to our app!</div>
             </div>
             <div class="card-header">
-                <h2 class="text-center">Kiwi Creálás</h2>
+                <h2 class="text-center">Create Your Kiwi</h2>
 
             </div>
             <div class="card-body">
                 <form method="post" role="form" th:action="@{/create/save}" th:object="${kiwi}">
                     <div class="form-group mb-3">
-                        <label class="form-label">Kiwi név</label>
+                        <label class="form-label">Your kiwi's name:</label>
                         <input class="form-control"
                                id="firstName"
                                name="firstName"
-                               placeholder="Add meg a kiwid nevét"
+                               placeholder="Your kiwi's name"
                                th:field="*{nev}"
                                type="text"
                         />
@@ -41,7 +57,7 @@
                     </div>
                     <input type ="hidden" th:field="*{userId}" />
                     <div class="form-group mb-3">
-                        <label class="form-label">Kiwi faja</label>
+                        <label class="form-label">Your kiwi's species:</label>
                         <select class="form-control" th:field="*{faj}" >
                             <option th:each="option : ${optionsFaj}" th:value="${option}" th:text="${option}"></option>
                         </select>
@@ -50,7 +66,7 @@
                         </p>
                     </div>
                     <div class="form-group mb-3">
-                        <label class="form-label">Kiwi neme</label>
+                        <label class="form-label">Kiwi's sex</label>
                         <select class="form-control" id="dropDownList" th:field="*{nem}">
                             <option th:each="option : ${optionsNem}" th:value="${option}" th:text="${option}"></option>
                         </select>
@@ -66,5 +82,7 @@
         </div>
     </div>
 </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
