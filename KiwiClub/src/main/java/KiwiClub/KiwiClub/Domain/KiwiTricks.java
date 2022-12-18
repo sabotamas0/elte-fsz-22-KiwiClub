@@ -17,5 +17,5 @@ public class KiwiTricks {
     @Id
     public Long kiwiId;
     private Long trickId;
-    private int learnedTrickIndex;
+    private int learnedLectureIndex;
 }

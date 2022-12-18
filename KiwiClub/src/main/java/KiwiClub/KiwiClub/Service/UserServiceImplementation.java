@@ -12,6 +12,7 @@ public class UserServiceImplementation implements UserService {
     private UserRepository userRepository;
     @Override
     public void saveUser(UserDto userDto) {
+        //hozzáadásnál valamennyi pénz hozzáadás
         User user = new User();
         user.setName(userDto.getFirstName() + " " + userDto.getLastName());
         user.setEmail(userDto.getEmail());

@@ -1,5 +1,6 @@
 package KiwiClub.KiwiClub.Controller;
 import KiwiClub.KiwiClub.Domain.*;
+import KiwiClub.KiwiClub.QueryResult.JoinedLecture;
 import KiwiClub.KiwiClub.Service.*;
 import KiwiClub.KiwiClub.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -29,9 +28,12 @@ public class KiwiController {
     private FoodService foodService;
     @Autowired
     private DrinkService drinkService;
+    @Autowired
+    private LectureProgressService lectureProgressService;
     @PostMapping ("indexKiwi")
     public String Index(@Valid @ModelAttribute("user") UserLoginDto user, BindingResult result,Model model){
 
+        //user validacio
         User existingUser = userService.findUserByEmail(user.getEmail());
 
         if(existingUser == null) {
@@ -50,8 +52,8 @@ public class KiwiController {
             return "login";
         }
 
-
         Kiwi userKiwi=kiwiService.findByUserId(existingUser.getUserId());
+
 
         if(userKiwi==null) {
             KiwiDto kiwi = new KiwiDto();
@@ -116,6 +118,31 @@ public class KiwiController {
         }
         return "index";
     }
+    @PostMapping ("/toTeach")
+    public String TanitKiwi(LearnDto toLearn,BindingResult result, Model model){
+        LectureProgress prog=lectureProgressService.getLectureProgressByLectureProgressId(toLearn.getLectureProgressId());
+        Optional<Kiwi> userKiwiOptional=kiwiService.findById(toLearn.getKiwiId());
+        if(userKiwiOptional.isPresent()) {
+            if(prog.getStartDate()==null) {
+                prog.setStartDate(Date.from(Instant.now()));
+                lectureProgressService.addLectureProgress(prog);
+            }
+            return "redirect:/sKiwi/" + userKiwiOptional.get().getUserId();
+        }
+        return "index";
+    }
+
+
+
+    @PostMapping ("/fillLectures")
+    public String KitoltLectures(@RequestBody LearnDto toLearn,BindingResult result, Model model) {
+        updateProgress();
+        List<JoinedLecture> joinedLectures = kiwiService.getJoinedLectures(toLearn.getTrickId(),toLearn.getKiwiId());
+        Optional<Kiwi> userKiwiOptional=kiwiService.findById(toLearn.getKiwiId());
+        model.addAttribute("lectures",joinedLectures);
+
+        return "lectureList";
+    }
     @GetMapping ("/sKiwi/{userId}")
     public String SeeKiwi(@PathVariable("userId") Long userId, Model model)
     {
@@ -123,6 +150,9 @@ public class KiwiController {
 
         DrinkDto drinkDto= new DrinkDto();
         FoodDto foodDto= new FoodDto();
+
+        // az átirányitáshoz
+        model.addAttribute("userId",userId);
 
         model.addAttribute("userKiwi", userKiwi);
         model.addAttribute("tricks", trickService.getAllTricks());
@@ -136,6 +166,8 @@ public class KiwiController {
         model.addAttribute("hunger",userKiwi.getWeight()/30000f*100f);
         model.addAttribute("thirst",userKiwi.getThirst()/3.0f*100f);
 
+
+        //List<JoinedLecture> lectures = kiwiService.getJoinedLectures(userKiwi.kiwiId, );
         Date lastfeed = userKiwi.getLastFeedDay();
         Date lastPenaltyDay = userKiwi.getLastPenaltyDay();
         Date now = Date.from(Instant.now());
@@ -177,6 +209,28 @@ public class KiwiController {
         happiness=Math.round(defHapp+wHapp+tHapp);
         model.addAttribute("happiness", happiness);
         return "seeKiwi";
+    }
+    private void updateProgress()
+    {
+        List<LectureProgress> progresses = lectureProgressService.getAllLectureProgresses();
+
+        Date now = Date.from(Instant.now());
+        for(LectureProgress currProg : progresses) {
+            if(currProg.getStartDate()!=null && !currProg.isLearned())
+            {
+                long ellapsed = now.getTime() - currProg.getStartDate().getTime();
+                int numberofdaystolearn = currProg.getHowManyDaysToLearn();
+                Float numb = ellapsed / 86400000f * (float) numberofdaystolearn;
+                if (numb >= 1.0) {
+                    currProg.setLearned(true);
+                    currProg.setProgress(100);
+                }
+                else {
+                    currProg.setProgress((int) (numb * 100));
+                }
+                lectureProgressService.updateLectureProgress(currProg);
+            }
+        }
     }
 }
 

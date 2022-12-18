@@ -1,24 +1,28 @@
-package KiwiClub.KiwiClub.Domain;
+package KiwiClub.KiwiClub.QueryResult;
 
-import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Lecture")
-public class Lecture {
+public class JoinedLecture {
     @Id
     public Long lectureId;
+    public Long lectureProgressId;
     private Long trickId;
     private String lectureName;
     private int lectureIndex;
-
+    private Long kiwiId;
+    private Date startDate;
+    private int howManyDaysToLearn;
+    private boolean isLearned;
+    private int progress;
 }
