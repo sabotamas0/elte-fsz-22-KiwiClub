@@ -42,13 +42,13 @@
                         <p >Type: <span th:text="${#strings.toLowerCase(userKiwi.getSpecies().toString())}"></span></p>
                         <p >Sex: <span th:text="${#strings.toLowerCase(userKiwi.getSex().toString())}"></span></p>
                         <p >Health: <span th:text="${happiness}"></span>%</p>
-                        <label for="file1">Happines:</label><br>
+                        <label for="file1">Happiness:</label><br>
                         <progress id="file1" th:value="${happiness}" max="100"> happiness% </progress>
                         <br>
                         <label for="file2">Satiety:</label><br>
                         <progress id="file2" th:value="${hunger}" max="100"> hunger% </progress>
                         <br>
-                        <label for="file3">Hidration:</label><br>
+                        <label for="file3">Hydration:</label><br>
                         <progress id="file3" th:value="${thirst}" max="100"> thirst% </progress>
                     </div>
                 </div>
@@ -62,10 +62,13 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label class="form-label">Tricks:</label>
-                            <select class="form-control">
-                                <option th:each="trick : ${tricks}" th:value="${trick.getName()}" th:text="${trick.getName()}"></option>
+                            <input type="hidden" id="kiwiId" th:value="${userKiwi.getKiwiId()}">
+                            <select autofocus class="form-control" id="trickSelection">
+                                <option th:each="trick : ${tricks}" th:value="${trick.getTrickId()}" th:text="${trick.getName()}"></option>
                             </select>
                         </div>
+
+                        <div class="Lectures" th:insert="lectureList :: lectureList"></div>
                     </div>
                 </div>
             </div>
@@ -107,55 +110,6 @@
 </main>
 
 
-
-
-
-
-
-
-
-<!--
-<form method="post" role="form" th:action="@{/toDrink}">
-    <label class="form-label">Italok :</label>
-    <div th:object="${userKiwi}" >
-        <input type ="hidden" th:value="KUTYAGECCCIIII" />
-        <select class="form-control"  th:field="${drink.drinkName}">
-            <option th:each="drinkss : ${drinks}" th:value="${drinkss.getName()}" th:text="${drinkss.getName()}"></option>
-        </select>
-    </div>
-
-    <input type="submit">
-</form>
--->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-<div class="form-group mb-3">
-    <label class="form-label">Trükkök :</label>
-    <select class="form-control" id="trickSelection">
-        <option th:each="trick : ${tricks}" th:value="${trick.getTrickId()}" th:text="${trick.getName()}"></option>
-    </select>
-</div>
-
-<div class="Lectures" th:insert="lectureList :: lectureList"></div>
-
-<form method="post" role="form" th:action="@{/toDrink}">
-    <label class="form-label">Italok :</label>
-    <input type="hidden" name="kiwiId" th:value="${userKiwi.getKiwiId()}">
-    <select class="form-control"  th:field="${drink.drinkName}">
-        <option th:each="drinkss : ${drinks}" th:value="${drinkss.getName()}" th:text="${drinkss.getName()}"></option>
-    </select>
-    <button type="submit">Itat</button>
-</form>
-
-<form method="post" role="form" th:action="@{/toEat}">
-    <label class="form-label">Ételek :</label>
-    <input type="hidden" name="kiwiId" th:value="${userKiwi.getKiwiId()}">
-    <select class="form-control"  th:field="${food.foodName}">
-        <option th:each="food : ${foods}" th:value="${food.getName()}" th:text="${food.getName()}"></option>
-    </select>
-    <button type="submit">Etet</button>
-</form>
-
 </body>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -184,6 +138,33 @@
             });
         });
     });
+    window.onload = function () {
+
+        document.getElementById('trickSelection').focus();
+        LoadTrickSelection();
+    };
+    function LoadTrickSelection() {
+        var selectedTrickId = $("#trickSelection").find(":selected").val();
+        var kiwiId = $("#kiwiId").val();
+        var toLearn = {
+
+            kiwiId: kiwiId,
+            trickId: selectedTrickId
+        };
+        $.ajax({
+            url: '/fillLectures',
+            dataType: "html",
+            data: JSON.stringify(toLearn),
+            type: "POST",
+            contentType: "application/json",
+            success: function (response) {
+                $('.Lectures').html(response);
+            },
+            error: function (err) {
+                alert(err.responseText);
+            }
+        });
+    }
 </script>
 
 </html>

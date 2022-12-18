@@ -1,11 +1,10 @@
 package KiwiClub.KiwiClub.Service;
 
+import KiwiClub.KiwiClub.Domain.*;
 import KiwiClub.KiwiClub.QueryResult.JoinedLecture;
-import KiwiClub.KiwiClub.Domain.Kiwi;
-import KiwiClub.KiwiClub.Domain.KiwiSpecies;
-import KiwiClub.KiwiClub.Domain.Sex;
 import KiwiClub.KiwiClub.Repository.KiwiRepository;
 import KiwiClub.KiwiClub.Repository.LectureProgressRepository;
+import KiwiClub.KiwiClub.Repository.LectureRepository;
 import KiwiClub.KiwiClub.dto.KiwiDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +18,8 @@ import java.util.Optional;
 public class KiwiServiceImplementation implements KiwiService{
     @Autowired
     private KiwiRepository kiwiRepository;
+    @Autowired
+    private LectureRepository lectureRepository;
 
     @Autowired
     private LectureProgressRepository lectureProgressRepository;
@@ -44,8 +45,19 @@ public class KiwiServiceImplementation implements KiwiService{
         kiwi.setAlive(true);
         kiwi.setWeight(10000.0f);
         kiwi.setThirst(1.0f);
+        List<Lecture> lectures = lectureRepository.findAll();
+
         //itt majd hozzá kell rendelni az összes létező trükk lecturjeit
         kiwiRepository.save(kiwi);
+        for(Lecture l : lectures) {
+            LectureProgress lp = new LectureProgress();
+            lp.setLectureId(l.getLectureId());
+            lp.setKiwiId(kiwiRepository.getKiwiByUserId(kiwiDto.getUserId()).getKiwiId());
+            lp.setHowManyDaysToLearn(1);
+            lp.setLearned(false);
+            lp.setProgress(0);
+            lectureProgressRepository.save(lp);
+        }
     }
 
     @Override

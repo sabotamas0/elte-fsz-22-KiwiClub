@@ -16,6 +16,7 @@ import java.util.Date;
 @Table(name = "LectureProgress")
 public class LectureProgress {
     @Id
+    @GeneratedValue
     public Long lectureProgressId;
     public Long lectureId;
     private Long kiwiId;
