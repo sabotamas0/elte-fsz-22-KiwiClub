@@ -1,6 +1,8 @@
 package KiwiClub.KiwiClub.Controller;
 
+import KiwiClub.KiwiClub.Domain.LectureProgress;
 import KiwiClub.KiwiClub.Domain.User;
+import KiwiClub.KiwiClub.Service.LectureProgressService;
 import KiwiClub.KiwiClub.Service.UserService;
 import KiwiClub.KiwiClub.dto.UserDto;
 import KiwiClub.KiwiClub.dto.UserLoginDto;
@@ -12,17 +14,27 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.*;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    LectureProgressService lectureProgressService;
+
     @GetMapping("/")
-    public String home(){
+    public String home()
+    {
+
         return "index";
     }
+    //seged metódus
+
     @GetMapping("/login")
     public String showLoginForm(Model model){
         //TODO

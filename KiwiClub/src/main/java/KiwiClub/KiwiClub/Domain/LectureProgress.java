@@ -13,12 +13,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Lecture")
-public class Lecture {
+@Table(name = "LectureProgress")
+public class LectureProgress {
     @Id
+    @GeneratedValue
+    public Long lectureProgressId;
     public Long lectureId;
-    private Long trickId;
-    private String lectureName;
-    private int lectureIndex;
+    private Long kiwiId;
+    private Date startDate;
+    private int howManyDaysToLearn;
+    private boolean isLearned;
+    private int progress;
 
 }

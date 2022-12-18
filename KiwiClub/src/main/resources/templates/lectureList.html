@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+
+>
+<body>
+<div th:fragment="lectureList">
+<tbody>
+<tr th:each="lecture: ${lectures}">
+    <td th:text="${lecture.getLectureName()}"></td>
+    <progress id="file" th:value="${lecture.getProgress()}" max="100">  </progress>
+    <br />
+    <form method="post" role="form" th:action="@{/toTeach}">
+        <input type="hidden" name="kiwiId" th:value="${lecture.getKiwiId()}">
+        <input type="hidden" name="trickId" th:value="${lecture.getTrickId()}">
+        <input type="hidden" name="lectureProgressId" th:value="${lecture.getLectureProgressId()}">
+        <p th:if="${ lecture.getProgress()==100 }">Megtanult lecke</p>
+        <p th:if="(${ lecture.getStartDate()} != null) and not ( ${lecture.getProgress()} == 100 ) ">Most tanulom! </p>
+        <button th:if="${ lecture.getStartDate()} == null " type="submit">Tanít</button>
+    </form>
+</tr>
+</tbody>
+</div>
+</body>
+</html>
