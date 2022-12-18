@@ -38,13 +38,13 @@ public class KiwiController {
 
         if(existingUser == null) {
             result.rejectValue("email", null,
-                    "Nincs ilyen felhasználó regisztrálva a rendszerben!");
+                    "There is no user with this email!");
 
         }
 
         if(existingUser!=null && !user.getPassWord().equals(existingUser.getPassword())){
             result.rejectValue("passWord", null,
-                    "Helytelen jelszó!");
+                    "Wrong password!");
         }
 
         if(result.hasErrors()){
